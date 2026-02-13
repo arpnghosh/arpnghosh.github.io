@@ -41,33 +41,17 @@
 }
 
 :root {
-  --color-bg: #f7f7f7;
-  --color-text: #000000;
-  --color-text-muted: #8c8c8c;
-  --color-heading: #000000;
-  --color-link: #0065cc;
-  --color-code-bg: #fcfcfc;
-  --color-border: #e5e5e5;
-  --color-footnote: #8c8c8c;
-  --color-footnote-marker: #000000;
-  --color-selection-bg: #b3d4fc;
-  --color-selection-text: #000000;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #1e1e1e;
-    --color-text: #e5e4d5;
-    --color-text-muted: #6f756f;
-    --color-heading: #e5e4d5;
-    --color-link: #8eadcc;
-    --color-code-bg: #191919;
-    --color-border: #333333;
-    --color-footnote: #6f756f;
-    --color-footnote-marker: #e5e4d5;
-    --color-selection-bg: #445566;
-    --color-selection-text: #e5e4d5;
-  }
+  --color-bg: #100f0f;
+  --color-text: #fff6e3;
+  --color-text-muted: #d3cec1;
+  --color-heading: #fff9eb;
+  --color-link: #509c93;
+  --color-code-bg: #2a261f;
+  --color-border: #6b635a;
+  --color-footnote: #d3cec1;
+  --color-footnote-marker: #fff9eb;
+  --color-selection-bg: rgba(80, 156, 147, 0.2);
+  --color-selection-text: #fff9eb;
 }
 
 body {
@@ -112,6 +96,7 @@ nav {
   font-size: 1.1em;
   font-weight: bold;
   text-decoration: none;
+  border-bottom: none;
   color: var(--color-heading);
 }
 
@@ -129,6 +114,7 @@ nav {
 .nav-links a {
   font-size: 0.9em;
   text-decoration: none;
+  border-bottom: none;
   color: var(--color-text-muted);
 }
 
@@ -172,7 +158,7 @@ p {
 }
 
 li {
-  margin-bottom: 0.6em;
+  margin-bottom: 0.15em;
 }
 
 time {
@@ -207,8 +193,13 @@ h3 {
 }
 
 a {
-  padding: 0.1em 0;
-  text-decoration: underline;
+  padding: 0;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.footnotes a {
   color: var(--color-link);
 }
 
@@ -235,7 +226,7 @@ a {
   font-size: 1em;
   font-weight: normal;
   text-decoration: none;
-  color: var(--color-link);
+  color: var(--color-text);
 }
 
 .post-item .post-link:hover {
@@ -256,7 +247,7 @@ a {
 
 .all-posts-link a {
   font-size: 1em;
-  color: var(--color-link);
+  color: var(--color-text);
 }
 
 .all-posts-link a:hover {
@@ -426,6 +417,7 @@ img {
 .footnote-backref {
   font-size: 0;
   text-decoration: none;
+  border-bottom: none;
 }
 
 .footnote-backref::after {
