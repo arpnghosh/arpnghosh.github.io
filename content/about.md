@@ -1,10 +1,16 @@
 ---
 title: "About"
-date: 2026-02-13
+date: 2026-02-14
 description: "About Arpan Ghosh"
 draft: false
 layout: "page"
 ---
+
+I'm Arpan Ghosh, a final-year undergraduate student finishing my degree in computer science & engineering. 
+
+A *vim aficionado* at heart, I mostly spend my time inside a terminal. Aside from programming, I love calligraphy and mechanical keyboards.
+
+Originally from Nagaland, I currently reside in Bhopal.
 
 ## Links
 
@@ -14,6 +20,6 @@ layout: "page"
 
 ## Colophon
 
-This website is built using a small static site generator which I wrote myself in Go. The body text uses [Merriweather](https://fonts.google.com/specimen/Merriweather) typeface and the headings are set in [ET Book](https://edwardtufte.github.io/et-book/). 
+This website is scaffolded using a static site generator which I wrote myself in Go and is hosted on GitHub pages.
 
-It is hosted on GitHub pages, you can find the source [here](https://github.com/arpnghosh/arpnghosh.github.io).
+The source code is available [here](https://github.com/arpnghosh/arpnghosh.github.io).

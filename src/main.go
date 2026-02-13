@@ -272,7 +272,7 @@ func main() {
 	}
 
 	// Copy fonts
-	fontDirs := []string{"IoskeleyMono", "et-book"}
+	fontDirs := []string{"IoskeleyMono", "Inter"}
 	for _, fontDir := range fontDirs {
 		srcDir := filepath.Join("public/fonts", fontDir)
 		dstDir := filepath.Join("build/fonts", fontDir)

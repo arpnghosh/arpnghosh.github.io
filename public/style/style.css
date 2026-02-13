@@ -1,69 +1,67 @@
 @font-face {
-  font-family: "et-book";
-  src: url("/fonts/et-book/et-book-roman-line-figures.ttf") format("truetype");
+  font-family: "Inter";
+  src: url("/fonts/Inter/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/InterVariable-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IoskeleyMono";
+  src: url("/fonts/IoskeleyMono/IoskeleyMono-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "et-book";
-  src: url("/fonts/et-book/et-book-display-italic-old-style-figures.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "et-book";
-  src: url("/fonts/et-book/et-book-bold-line-figures.ttf") format("truetype");
+  font-family: "IoskeleyMono";
+  src: url("/fonts/IoskeleyMono/IoskeleyMono-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "IoskeleyMono";
-  src: url("/fonts/IosevkaMono/IoskeleyMono-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IoskeleyMono";
-  src: url("/fonts/IosevkaMono/IoskeleyMono-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IoskeleyMono";
-  src: url("/fonts/IosevkaMono/IoskeleyMono-Italic.ttf") format("truetype");
+  src: url("/fonts/IoskeleyMono/IoskeleyMono-Italic.woff2") format("woff2");
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
 }
 
 :root {
   --color-bg: #100f0f;
   --color-text: #fff6e3;
-  --color-text-muted: #d3cec1;
+  --color-text-muted: #8a8478;
   --color-heading: #fff9eb;
   --color-link: #509c93;
   --color-code-bg: #2a261f;
   --color-border: #6b635a;
-  --color-footnote: #d3cec1;
-  --color-footnote-marker: #fff9eb;
-  --color-selection-bg: rgba(80, 156, 147, 0.2);
-  --color-selection-text: #fff9eb;
+  --color-footnote: #6e6e6e;
+  --color-footnote-marker: #a2a2a2;
+  --color-selection-bg: #509c93;
+  --color-selection-text: #2a261f;
 }
 
 body {
-  max-width: 68ch;
+  max-width: 60ch;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: "Merriweather", serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0 auto;
   padding: 0 1.25rem;
   font-size: 1em;
-  line-height: 1.15;
-  font-weight: 300;
+  line-height: 1.35;
+  font-weight: 450;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -138,17 +136,18 @@ nav {
 
 /* Intro */
 .intro {
+  margin-top: 6em;
   margin-bottom: 2.5em;
 }
 
 .intro p {
-  font-size: 1.0em;
+  font-size: 1em;
   line-height: 1.8;
 }
 
 p,
 li {
-  font-family: "Merriweather", serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1em;
   line-height: 1.9;
 }
@@ -165,6 +164,7 @@ time {
   display: block;
   color: var(--color-text-muted);
   margin-bottom: 1.3em;
+  text-transform: lowercase;
 }
 
 h1 {
@@ -188,7 +188,7 @@ h3 {
 h1,
 h2,
 h3 {
-  font-family: "et-book", serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   color: var(--color-heading);
 }
 
@@ -226,6 +226,7 @@ a {
   font-size: 1em;
   font-weight: normal;
   text-decoration: none;
+  border-bottom: none;
   color: var(--color-text);
 }
 
@@ -260,7 +261,7 @@ a {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: normal;
-  font-family: "et-book", serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 .year-heading:first-child {
@@ -274,7 +275,7 @@ a {
 
 .tag {
   display: inline-block;
-  font-family: "IoskeleyMono", monospace;
+  font-family: "IoskeleyMono", ui-monospace, "Cascadia Code", "Consolas", "Liberation Mono", Menlo, monospace;
   font-size: 0.75em;
   color: var(--color-text-muted);
   margin-right: 0.6em;
@@ -286,7 +287,7 @@ a {
 
 code,
 pre {
-  font-family: "IoskeleyMono", monospace;
+  font-family: "IoskeleyMono", ui-monospace, "Cascadia Code", "Consolas", "Liberation Mono", Menlo, monospace;
 }
 
 code {
@@ -337,7 +338,6 @@ aside pre,
 }
 
 @media (min-width: 1280px) {
-
   aside,
   .aside {
     float: right;
