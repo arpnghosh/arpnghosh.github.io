@@ -1,0 +1,28 @@
+{{define "post.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{.Description}}">
+  <meta name="author" content="{{.SiteAuthor}}">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+  <title>{{.Title}} | {{.SiteName}}</title>
+</head>
+
+<body>
+{{template "nav" .}}
+
+<article>
+  <h1>{{.Title}}</h1>
+  <time>{{formatDate .RawDate}}</time>
+  {{.Content}}
+</article>
+</body>
+</html>
+{{end}}

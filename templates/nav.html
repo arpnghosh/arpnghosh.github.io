@@ -1,0 +1,11 @@
+{{define "nav"}}
+<nav>
+  <a href="/" class="nav-name">Arpan Ghosh</a>
+  <div class="nav-links">
+    <a href="/about"{{if eq .NavPath "/about"}} class="active"{{end}}>About</a>
+    <a href="/blog"{{if eq .NavPath "/blog"}} class="active"{{end}}>Blog</a>
+    <a href="/projects"{{if eq .NavPath "/projects"}} class="active"{{end}}>Projects</a>
+    <a href="/now"{{if eq .NavPath "/now"}} class="active"{{end}}>Now</a>
+  </div>
+</nav>
+{{end}}
