@@ -57,6 +57,8 @@ type SiteConfig struct {
 	SiteDescription string
 	Year            int
 	NavPath         string
+	Favicon         string
+	OGImage         string
 }
 
 type PageData struct {
@@ -271,6 +273,14 @@ func main() {
 		}
 	}
 
+	// Copy favicon
+	if content, err := os.ReadFile("public/favicon.ico"); err == nil {
+		if err := os.WriteFile("build/favicon.ico", content, 0o644); err != nil {
+			log.Fatalf("Error writing favicon: %v", err)
+		}
+	}
+
+
 	// Copy fonts
 	fontDirs := []string{"IoskeleyMono", "Inter"}
 	for _, fontDir := range fontDirs {
@@ -302,6 +312,8 @@ func main() {
 		SiteAuthor:      "Arpan Ghosh",
 		SiteDescription: "blog",
 		Year:            time.Now().Year(),
+		Favicon:         "/favicon.ico",
+		OGImage:         "/images/preview.png",
 	}
 
 	// Render blog posts
