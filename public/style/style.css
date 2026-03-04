@@ -187,6 +187,7 @@ time {
   color: var(--color-text-muted);
   margin-bottom: 1.3em;
   text-transform: lowercase;
+  font-variant-numeric: tabular-nums;
 }
 
 h1 {
@@ -227,7 +228,7 @@ h3 {
 a {
   padding: 0;
   text-decoration: none;
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-text);
   color: var(--color-text);
 }
 
@@ -273,6 +274,7 @@ a {
   flex-shrink: 0;
   min-width: 6.5em;
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .all-posts-link {
