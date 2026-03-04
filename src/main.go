@@ -20,6 +20,9 @@ import (
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/parser"
 	"github.com/yuin/goldmark/renderer/html"
+
+	chromahtml "github.com/alecthomas/chroma/v2/formatters/html"
+	highlighting "github.com/yuin/goldmark-highlighting/v2"
 )
 
 var (
@@ -185,7 +188,14 @@ func copyDir(srcDir, dstDir string, filter func(string) bool) error {
 
 func main() {
 	md := goldmark.New(
-		goldmark.WithExtensions(extension.Footnote),
+		goldmark.WithExtensions(
+			extension.Footnote,
+			highlighting.NewHighlighting(
+				highlighting.WithFormatOptions(
+					chromahtml.WithClasses(true),
+				),
+			),
+		),
 		goldmark.WithParserOptions(parser.WithAutoHeadingID()),
 		goldmark.WithRendererOptions(html.WithUnsafe()),
 	)
@@ -253,7 +263,7 @@ func main() {
 	}
 
 	// Copy CSS
-	cssFiles := []string{"style.css"}
+	cssFiles := []string{"style.css", "syntax.css"}
 	for _, cssFile := range cssFiles {
 		src, err := os.ReadFile(filepath.Join("public/style", cssFile))
 		if err != nil {
