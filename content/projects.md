@@ -6,8 +6,8 @@ draft: false
 layout: "page"
 ---
 
-## adm
-A command-line utility for downloading files from the internet.
+<!-- ## adm -->
+**adm**: A command-line for downloading files from the internet.
 
 **Stack:** Go
 
@@ -15,8 +15,7 @@ A command-line utility for downloading files from the internet.
 
 ---
 
-## waypad
-A utility program  to prevent idle input behaviour of game controllers on wayland compositors.
+**waypad**: A utility program  to prevent idle input behaviour of game controllers on wayland compositors.
 
 **Stack:** C++, Wayland
 

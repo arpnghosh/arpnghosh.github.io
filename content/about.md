@@ -7,8 +7,7 @@ layout: "page"
 ---
 
 I'm Arpan Ghosh, a final-year undergraduate student finishing my degree in computer science & engineering. 
-
-A *vim aficionado* at heart, I mostly spend my time inside a terminal. Aside from programming, I love calligraphy and mechanical keyboards.
+Aside from programming, I love calligraphy and mechanical keyboards.
 
 Originally from Nagaland, I currently reside in Bhopal.
 
