@@ -17,7 +17,7 @@
     {{template "nav" .}}
 
     <main>
-      <div class="intro">
+      <div>
         <h1>Arpan Ghosh</h1>
         <p>
           I am a software engineer based out of India. You can check out my projects <a href="/projects">here</a> and go to <a href="/about">about</a> for more information about me.
@@ -28,7 +28,7 @@
 
       {{range .RecentPosts}}
       <div class="post-item">
-        <span class="post-date">{{formatDate .RawDate}}</span>
+        <!-- <span class="post-date">{{formatDate .RawDate}}</span> -->
         <a class="post-link" href="{{.URL}}">{{.Title}}</a>
       </div>
       {{end}}

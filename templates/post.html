@@ -12,16 +12,11 @@
   <link href="/css/style.css" rel="stylesheet" type="text/css">
   <link href="/css/syntax.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
   <title>{{.Title}} | {{.SiteName}}</title>
 </head>
 
 <body>
-{{template "nav" .}}
-
-<a href="/blog">← Blog index</a>
+<a class="blog-index" href="/blog">← Blog index</a>
 
 <article>
   <h1>{{.Title}}</h1>

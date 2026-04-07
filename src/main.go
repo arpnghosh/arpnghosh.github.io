@@ -9,9 +9,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"regexp"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 
@@ -89,33 +87,33 @@ type BlogPostData struct {
 
 // addSectionNumbers prepends hierarchical numbers (1., 1.1, 1.1.1, etc.) to
 // headings in the rendered HTML. h2 is the top level (1.), h3 is second (1.1), and so on.
-func addSectionNumbers(htmlContent string) string {
-	re := regexp.MustCompile(`(<h([2-6])([^>]*)>)`)
-	counters := make([]int, 5) // index 0 = h2, 1 = h3, ..., 4 = h6
-
-	result := re.ReplaceAllStringFunc(htmlContent, func(match string) string {
-		sub := re.FindStringSubmatch(match)
-		level, _ := strconv.Atoi(sub[2])
-		idx := level - 2 // h2 -> 0, h3 -> 1, etc.
-
-		// increment the current level
-		counters[idx]++
-		// reset all deeper levels
-		for i := idx + 1; i < len(counters); i++ {
-			counters[i] = 0
-		}
-
-		// build the number string, e.g. "1.2"
-		var parts []string
-		for i := 0; i <= idx; i++ {
-			parts = append(parts, strconv.Itoa(counters[i]))
-		}
-		number := strings.Join(parts, ".")
-
-		return sub[1] + number + ". "
-	})
-	return result
-}
+// func addSectionNumbers(htmlContent string) string {
+// 	re := regexp.MustCompile(`(<h([2-6])([^>]*)>)`)
+// 	counters := make([]int, 5) // index 0 = h2, 1 = h3, ..., 4 = h6
+//
+// 	result := re.ReplaceAllStringFunc(htmlContent, func(match string) string {
+// 		sub := re.FindStringSubmatch(match)
+// 		level, _ := strconv.Atoi(sub[2])
+// 		idx := level - 2 // h2 -> 0, h3 -> 1, etc.
+//
+// 		// increment the current level
+// 		counters[idx]++
+// 		// reset all deeper levels
+// 		for i := idx + 1; i < len(counters); i++ {
+// 			counters[i] = 0
+// 		}
+//
+// 		// build the number string, e.g. "1.2"
+// 		var parts []string
+// 		for i := 0; i <= idx; i++ {
+// 			parts = append(parts, strconv.Itoa(counters[i]))
+// 		}
+// 		number := strings.Join(parts, ".")
+//
+// 		return sub[1] + number + ". "
+// 	})
+// 	return result
+// }
 
 func parsePage(path string, md goldmark.Markdown) (*Page, *FrontMatter, error) {
 	content, err := os.ReadFile(path)
@@ -218,8 +216,8 @@ func main() {
 			if page == nil {
 				return nil // draft
 			}
-			numberedHTML := addSectionNumbers(string(page.Content))
-			page.Content = template.HTML(numberedHTML)
+			// numberedHTML := addSectionNumbers(string(page.Content))
+			page.Content = template.HTML(string(page.Content))
 			page.URL = "/blog/" + page.Slug
 			page.OutputPath = filepath.Join("build", "blog", page.Slug, "index.html")
 			blogPosts = append(blogPosts, *page)
@@ -282,18 +280,18 @@ func main() {
 	}
 
 	// Copy fonts
-	fontDirs := []string{"IoskeleyMono", "Inter"}
-	for _, fontDir := range fontDirs {
-		srcDir := filepath.Join("public/fonts", fontDir)
-		dstDir := filepath.Join("build/fonts", fontDir)
-		fontFilter := func(path string) bool {
-			ext := filepath.Ext(path)
-			return ext == ".ttf" || ext == ".woff2" || ext == ".woff" || ext == ".otf" || ext == ".eot" || ext == ".svg"
-		}
-		if err := copyDir(srcDir, dstDir, fontFilter); err != nil {
-			log.Fatal(err)
-		}
-	}
+	// fontDirs := []string{"IoskeleyMono", "Inter"}
+	// for _, fontDir := range fontDirs {
+	// 	srcDir := filepath.Join("public/fonts", fontDir)
+	// 	dstDir := filepath.Join("build/fonts", fontDir)
+	// 	fontFilter := func(path string) bool {
+	// 		ext := filepath.Ext(path)
+	// 		return ext == ".ttf" || ext == ".woff2" || ext == ".woff" || ext == ".otf" || ext == ".eot" || ext == ".svg"
+	// 	}
+	// 	if err := copyDir(srcDir, dstDir, fontFilter); err != nil {
+	// 		log.Fatal(err)
+	// 	}
+	// }
 
 	funcMap := template.FuncMap{
 		"formatDate": func(t time.Time) string {
